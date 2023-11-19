@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	// e can be used to access everything in echo
+	// e can be used to access everything in/from echo
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!, Here I am")
