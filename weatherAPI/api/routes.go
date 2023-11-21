@@ -1,16 +1,16 @@
+// api/routes.go
 package api
 
 import (
-    "github.com/labstack/echo/v4"
+	"github.com/jazaltron10/goAPI/weatherAPI/internal/weather"
+	"github.com/labstack/echo/v4"
 )
 
-// StartServer initializes and starts the Echo server.
-func StartServer() {
-    e := echo.New()
+// InitializeRoutes sets up the routes for the application.
+func InitializeRoutes(e *echo.Echo) {
+	// Create a group for API routes
+	apiGroup := e.Group("/api")
 
-    // Define the endpoint for the weather forecast.
-    e.GET("/weather", GetWeatherForecast)
-
-    // Start the server on port 1323.
-    e.Logger.Fatal(e.Start(":1323"))
+	// Define the endpoint for the weather forecast.
+	apiGroup.GET("/weather", weather.GetWeatherForecastHandler)
 }
