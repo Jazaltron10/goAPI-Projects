@@ -8,7 +8,6 @@ import (
 )
 
 // Import Logrus for structured logging
-
 const (
 	country = "usa"
 	format  = "json"
