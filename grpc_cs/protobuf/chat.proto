@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package protobuf;
+
+option go_package="github.com/jazaltron10/grpc_cs/protobuf";
+
+service Math{
+    rpc Max(stream Request) returns (stream Response){};
+}
+
+message Request {
+ int32 num = 1;   
+}
+message Response {
+ int32 result = 1;   
+}
+
+
+
+// Used to generate the protobuf files 
+// - protoc --go_out=paths=source_relative:./ --go-grpc_out=paths=source_relative:./ --plugin=protoc-gen-go-grpc=$HOME/go/bin/protoc-gen-go-grpc --plugin=protoc-gen-go=$HOME/go/bin/protoc-gen-go ./protobuf/chat.proto 
+
+
